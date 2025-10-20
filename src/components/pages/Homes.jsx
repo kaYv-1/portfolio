@@ -19,7 +19,7 @@ const Homes = () => {
 
   return (
     <motion.div initial="hidden" animate="show" style={{ color: "#fff" }}>
-      {/* SECCIÓN DE PRESENTACIÓN */}
+      {}
       <motion.section
         variants={fadeIn}
         style={{
@@ -87,7 +87,7 @@ const Homes = () => {
         </div>
       </motion.section>
 
-      {/* PROYECTOS DESTACADOS */}
+      {}
       <motion.section
         id="projects"
         variants={fadeIn}
@@ -114,7 +114,7 @@ const Homes = () => {
             {
               title: "Portafolio Personal",
               desc: "Página web interactiva para mostrar mis proyectos, habilidades y certificaciones.",
-              link: "https://github.com/kaYv-1/portfolio",
+              link: "https://github.com/kaYv-1/portfolio/tree/main",
             },
           ].map((project, i) => (
             <Col key={i} xs={24} sm={12} md={8}>
@@ -146,7 +146,7 @@ const Homes = () => {
         </Row>
       </motion.section>
 
-      {/* CERTIFICADOS */}
+      {}
       <motion.section
         id="certificates"
         variants={fadeIn}

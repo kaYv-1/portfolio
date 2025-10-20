@@ -28,7 +28,7 @@ const MainLayout = ({ children }) => {
           "linear-gradient(180deg, #0e0e10 0%, #151527 45%, #0e0e10 100%)",
       }}
     >
-      {/* HEADER */}
+      {}
       <Header
         style={{
           position: "fixed",
@@ -48,7 +48,7 @@ const MainLayout = ({ children }) => {
           transition: "all 0.3s ease",
         }}
       >
-        {/* LOGO */}
+        {}
         <Link
           to="/"
           style={{
@@ -75,7 +75,7 @@ const MainLayout = ({ children }) => {
           Mi Portafolio
         </Link>
 
-        {/* NAV */}
+        {}
         <nav style={{ display: "flex", gap: "2.5rem" }}>
           {navItems.map((item) => (
             <Link
@@ -111,7 +111,7 @@ const MainLayout = ({ children }) => {
         </nav>
       </Header>
 
-      {/* CONTENT */}
+      {}
       <Content
         style={{
           padding: "120px 80px 80px 80px",
@@ -124,7 +124,7 @@ const MainLayout = ({ children }) => {
         {children}
       </Content>
 
-      {/* FOOTER */}
+      {}
       <Footer
         style={{
           textAlign: "center",
