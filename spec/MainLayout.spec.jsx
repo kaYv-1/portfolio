@@ -6,7 +6,7 @@ import MainLayout from "../src/components/layouts/MainLayout.jsx";
 describe("Componente MainLayout", () => {
   let container;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     container = document.createElement("div");
     document.body.appendChild(container);
     const root = ReactDOM.createRoot(container);
@@ -17,6 +17,7 @@ describe("Componente MainLayout", () => {
         </MainLayout>
       </MemoryRouter>
     );
+    await new Promise((r) => setTimeout(r, 50));
   });
 
   afterEach(() => {

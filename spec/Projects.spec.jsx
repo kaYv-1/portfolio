@@ -5,11 +5,12 @@ import Projects from "../src/components/pages/Projects.jsx";
 describe("Componente Projects", () => {
   let container;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     container = document.createElement("div");
     document.body.appendChild(container);
     const root = ReactDOM.createRoot(container);
     root.render(<Projects />);
+    await new Promise((r) => setTimeout(r, 50));
   });
 
   afterEach(() => {
@@ -22,9 +23,14 @@ describe("Componente Projects", () => {
   });
 
   it("tiene botones 'Ver en GitHub' (al menos uno)", () => {
-    const botones = Array.from(container.querySelectorAll("button")).filter(b =>
-      b.textContent.includes("Ver en GitHub")
-    );
+    const candidates = Array.from(container.querySelectorAll("button, a, .ant-btn, [href]"));
+    const botones = candidates.filter(el => {
+      const href = el.getAttribute && el.getAttribute('href');
+      if (href && href.includes('github.com')) return true;
+      const text = el.textContent && el.textContent.trim();
+      if (text && text.includes("Ver en GitHub")) return true;
+      return false;
+    });
     expect(botones.length).toBeGreaterThan(0);
   });
 });

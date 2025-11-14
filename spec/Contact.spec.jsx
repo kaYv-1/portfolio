@@ -5,11 +5,12 @@ import Contact from "../src/components/pages/Contact.jsx";
 describe("Componente Contact", () => {
   let container;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     container = document.createElement("div");
     document.body.appendChild(container);
     const root = ReactDOM.createRoot(container);
     root.render(<Contact />);
+     await new Promise((r) => setTimeout(r, 50));
   });
 
   afterEach(() => {

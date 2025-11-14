@@ -5,11 +5,12 @@ import Homes from "../src/components/pages/Homes.jsx";
 describe("Componente Homes", () => {
   let container = null;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     container = document.createElement("div");
     document.body.appendChild(container);
     const root = ReactDOM.createRoot(container);
     root.render(<Homes />);
+    await new Promise((r) => setTimeout(r, 50));
   });
 
   afterEach(() => {
