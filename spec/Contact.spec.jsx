@@ -10,7 +10,7 @@ describe("Componente Contact", () => {
     document.body.appendChild(container);
     const root = ReactDOM.createRoot(container);
     root.render(<Contact />);
-     await new Promise((r) => setTimeout(r, 50));
+    await new Promise((r) => setTimeout(r, 50));
   });
 
   afterEach(() => {

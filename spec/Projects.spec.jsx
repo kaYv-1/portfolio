@@ -23,14 +23,9 @@ describe("Componente Projects", () => {
   });
 
   it("tiene botones 'Ver en GitHub' (al menos uno)", () => {
-    const candidates = Array.from(container.querySelectorAll("button, a, .ant-btn, [href]"));
-    const botones = candidates.filter(el => {
-      const href = el.getAttribute && el.getAttribute('href');
-      if (href && href.includes('github.com')) return true;
-      const text = el.textContent && el.textContent.trim();
-      if (text && text.includes("Ver en GitHub")) return true;
-      return false;
-    });
-    expect(botones.length).toBeGreaterThan(0);
+    const candidates = Array.from(container.querySelectorAll("button, a, [role='button']")).filter(el =>
+      el.textContent.includes("Ver en GitHub")
+    );
+    expect(candidates.length).toBeGreaterThan(0);
   });
 });

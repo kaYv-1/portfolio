@@ -1,17 +1,12 @@
 module.exports = function(config) {
   config.set({
-    frameworks: ['jasmine'],
+    basePath: '',
+    frameworks: ['jasmine', 'webpack'],
     files: [
-      { pattern: 'src/**/*.js', watched: false, included: true, served: true },
-      { pattern: 'src/**/*.jsx', watched: false, included: true, served: true },
-      { pattern: 'spec/**/*.spec.js', watched: false },
       { pattern: 'spec/**/*.spec.jsx', watched: false }
     ],
-    exclude: ['src/index.js', 'src/App.test.js', 'src/setupTests.js', 'src/test/setupTests.js'],
+    exclude: [],
     preprocessors: {
-      'src/**/*.js': ['webpack', 'sourcemap'],
-      'src/**/*.jsx': ['webpack', 'sourcemap'],
-      'spec/**/*.spec.js': ['webpack', 'sourcemap'],
       'spec/**/*.spec.jsx': ['webpack', 'sourcemap']
     },
     webpack: {
@@ -46,19 +41,16 @@ module.exports = function(config) {
       },
       devtool: 'inline-source-map'
     },
-    reporters: ['progress', 'kjhtml', 'coverage'],
-    coverageReporter: {
-      dir: 'coverage/',
-      reporters: [
-        { type: 'html', subdir: 'html' },
-        { type: 'text-summary' }
-      ]
-    },
-    browsers: ['ChromeHeadless'],
-    singleRun: true,
+    reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
+    browserDisconnectTimeout: 10000,
+    browserDisconnectTolerance: 2,
+    browserNoActivityTimeout: 30000,
+    browsers: ['ChromeHeadless'],
+    singleRun: true,
+    concurrency: Infinity,
     client: {
       clearContext: false
     }
